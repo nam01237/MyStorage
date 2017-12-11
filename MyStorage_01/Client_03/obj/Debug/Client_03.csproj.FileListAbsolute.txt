@@ -1,0 +1,16 @@
+D:\WebHard_02_1204\Client_02\bin\Debug\Client_03.exe.config
+D:\NamHard_03\Client_03\bin\Debug\Client_03.exe.config
+D:\NamHard_03\Client_03\bin\Debug\Client_03.exe
+D:\NamHard_03\Client_03\bin\Debug\Client_03.pdb
+D:\NamHard_03\Client_03\bin\Debug\WHP.dll
+D:\NamHard_03\Client_03\bin\Debug\WHP.pdb
+D:\NamHard_03\Client_03\obj\Debug\Client_03.csprojResolveAssemblyReference.cache
+D:\NamHard_03\Client_03\obj\Debug\Client_03.DownLoadWindow.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.LoginForm.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.MainForm.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.InputForm.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.Properties.Resources.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.RegisterForm.resources
+D:\NamHard_03\Client_03\obj\Debug\Client_03.csproj.GenerateResource.Cache
+D:\NamHard_03\Client_03\obj\Debug\Client_03.exe
+D:\NamHard_03\Client_03\obj\Debug\Client_03.pdb
