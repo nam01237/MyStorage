@@ -12,3 +12,12 @@ D:\NamHard_03\LoginServer_01\bin\Debug\WHP.dll
 D:\NamHard_03\LoginServer_01\bin\Debug\WHP.pdb
 D:\NamHard_03\LoginServer_01\obj\Debug\loginServer_01.exe
 D:\NamHard_03\LoginServer_01\obj\Debug\loginServer_01.pdb
+D:\work\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer_01.exe.config
+D:\work\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer_01.exe
+D:\work\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer_01.pdb
+D:\work\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.dll
+D:\work\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.pdb
+D:\work\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer_01.csprojResolveAssemblyReference.cache
+D:\work\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer_01.csproj.CoreCompileInputs.cache
+D:\work\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer_01.exe
+D:\work\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer_01.pdb

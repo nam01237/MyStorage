@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHP", "WHP\WHP.csproj", "{A11502D2-804A-428A-8145-06FA1D067982}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client_03", "Client_03\Clie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileServer_03", "FileServer_03\FileServer_03.csproj", "{A0DB406B-7B06-45B9-9A2D-E1D8AA95C057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginServer_01", "LoginServer_01\LoginServer_01.csproj", "{BB9BF57D-2410-498C-A64A-F6A40E8D4F0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginServer", "LoginServer_01\LoginServer.csproj", "{BB9BF57D-2410-498C-A64A-F6A40E8D4F0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE8B2D63-0CF6-43CA-A11F-4A2C2C22CAED}
 	EndGlobalSection
 EndGlobal

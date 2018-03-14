@@ -1,0 +1,9 @@
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csprojResolveAssemblyReference.cache
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csproj.CoreCompileInputs.cache
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.exe.config
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.exe
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.pdb
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.dll
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.pdb
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.exe
+D:\indivi\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.pdb

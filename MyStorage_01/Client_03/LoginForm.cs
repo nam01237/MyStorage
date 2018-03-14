@@ -27,7 +27,13 @@ namespace Client_03
                 return;
             }
 
+            btn_Login.Enabled = false;
+            btn_register.Enabled = false;
+
             ((MainForm)(this.Owner)).Login(txt_ID.Text, txt_PW.Text);
+
+            btn_register.Enabled = true;
+            btn_Login.Enabled = true;
         }
 
         private void btn_register_Click(object sender, EventArgs e)

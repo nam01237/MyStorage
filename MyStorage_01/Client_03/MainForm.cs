@@ -19,8 +19,8 @@ namespace Client_03
     public partial class MainForm : Form
     {
         // 네트워크 관련
-        private IPEndPoint fileAdress = new IPEndPoint(IPAddress.Parse("118.36.57.252"), 4454);   // 파일서버 주소
-        private IPEndPoint loginAdress = new IPEndPoint(IPAddress.Parse("118.36.57.252"), 4453);  // 로그인서버 주소 
+        private IPEndPoint fileAdress = new IPEndPoint(IPAddress.Parse("localhost"), 4454);   // 파일서버 주소
+        private IPEndPoint loginAdress = new IPEndPoint(IPAddress.Parse("localhost"), 4453);  // 로그인서버 주소 
         private IPEndPoint clientAdress = new IPEndPoint(0, 0);  // 클라이언트 (이 프로그램) 주소
         private string downPath = "";   // 다운로드 경로 저장하는 문자열
         // 
@@ -537,28 +537,28 @@ namespace Client_03
             btn_Register.Enabled = false;
             userID = reqLoginPack.ID;
             SetStartNode(); 
-            // 로그인 유지를 하는 반복문을 비동기로 처리하고 메소드를 반환한다.
-            await Task.Run(() =>
-            {
-                while (true)
-                {
-                    serializer.Serialize(logStream, reqMait); // 요청을 주고
-                    resMait = (Pack)serializer.Deserialize(logStream); // 받는다.
+            // 로그인 유지를 하는 반복문을 비동기로 처리하고 메소드를 탈출한다.
+            //await Task.Run(() =>
+            //{
+            //    while (true)
+            //    {
+            //        serializer.Serialize(logStream, reqMait); // 요청을 주고
+            //        resMait = (Pack)serializer.Deserialize(logStream); // 받는다.
 
-                    if (resMait.PACK_TYPE == CONSTANTS.TYPE_ERROR) // 만약 받은 Pack에 에러가있다면 서버에서 연결을 끊이려는 덧이다.
-                    {
-                        runUp = false; // 끊기전에 업로드를 종료한다.
-                        foreach (DownLoadWindow dw in dwList) // 열려있는 다운로드창도 모두 닫는다.
-                        {
-                            dw.Close();
-                        }
-                        MessageBox.Show(CONSTANTS.Err_String[resMait.FLAG], "알림");
-                        Application.Exit(); // 프로그램 종료
-                    }
+            //        if (resMait.PACK_TYPE == CONSTANTS.TYPE_ERROR) // 만약 받은 Pack에 에러가있다면 서버에서 연결을 끊이려는 덧이다.
+            //        {
+            //            runUp = false; // 끊기전에 업로드를 종료한다.
+            //            foreach (DownLoadWindow dw in dwList) // 열려있는 다운로드창도 모두 닫는다.
+            //            {
+            //                dw.Close();
+            //            }
+            //            MessageBox.Show(CONSTANTS.Err_String[resMait.FLAG], "알림");
+            //            Application.Exit(); // 프로그램 종료
+            //        }
 
-                    Thread.Sleep(500); // 이 반복은 0.5초 간격으로 실행한다.
-                }
-            });
+            //        Thread.Sleep(500); // 이 반복은 0.5초 간격으로 실행한다.
+            //    }
+            //});
         }
 
         private void btn_Login_Click(object sender, EventArgs e) // 로그인 버튼을 누른경우 로그인창을 띄운다.
