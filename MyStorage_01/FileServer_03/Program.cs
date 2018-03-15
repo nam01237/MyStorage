@@ -24,7 +24,7 @@ namespace FileServer_03
         BinaryFormatter serializer;                     // 직렬화를 담당한다.
 
         private TreeView tempTree = new TreeView();     // 클라이언트에 보낼 TreeViewNode(디렉토리 경로 나타냄) 임시로 붙일 TreeView 
-        const string rootPath = "D:\\";                 // 서버 파일들 저장하는 경로 (D:\\계정명 ~ )
+        const string rootPath = "D:\\MyStorage";                 // 서버 파일들 저장하는 경로 (D:\\계정명 ~ )
 
         // === 생성자 === //
         public ServiceUtil(TcpClient client) // 요청을 보낸 클라이언트 정보로 TcpClient, NetStream초기화

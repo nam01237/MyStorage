@@ -1,27 +1,59 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using WHP;
 
 
-namespace loginServer
+namespace LoginServer
 {
     class LoginUserList
     {
-        private static LoginUserList userList = new LoginUserList();
-        private List<string> users;
+        private static LoginUserList instance;
+        private Hashtable users;
+        private object thisLock;
 
         private LoginUserList()
         {
-             users = new List<string>();
+            users = new Hashtable();
+            thisLock = new object();
         }
 
-        public LoginUserList GetInstance()
+        public static LoginUserList GetInstance()
         {
-            return userList;
+            if (instance == null)
+                instance = new LoginUserList();
+
+            return instance;
         }
 
-        public void AddUser(string id)
+        public bool CorrectLogin(string key, Guid guid)
         {
-            users.Add(id);
+            return ((Guid)(users[key]) == guid);
+        }
+
+        public bool AddUser(string id, Guid guid)
+        {
+            bool success;
+
+            try
+            {
+                lock (thisLock)
+                {
+                    users.Add(id, guid);
+                }
+
+                success = true;
+            }
+            catch (ArgumentException)
+            {
+                success = false;
+            }
+
+            return success;
+        }
+
+        public void RemoveUser(string key)
+        {
+            users.Remove(key);
         }
     }
 

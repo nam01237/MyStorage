@@ -15,6 +15,7 @@ class Program
     {
         private const int logPort = 4453; // 로그인 서버 포트
         public static LoginDBConnector ldbc = LoginDBConnector.GetInstance();
+        public static LoginUserList userList = LoginUserList.GetInstance();
 
         static void Main(string[] args)
         {

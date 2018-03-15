@@ -5,11 +5,11 @@ namespace LoginServer
 {
     class LoginDBConnector
     {
-        private static LoginDBConnector ldbc =  new LoginDBConnector();
+        private static LoginDBConnector instance;
 
+        private SqlDataReader sdr;
         private SqlConnection conn;
         private SqlCommand cmd;
-        private SqlDataReader sdr;
 
         private LoginDBConnector()
         {
@@ -24,21 +24,25 @@ namespace LoginServer
 
         public static LoginDBConnector GetInstance()
         {
-            return ldbc;
+            if( instance == null )
+            {
+                instance = new LoginDBConnector();
+            }
+
+            return instance;
         }
 
         public SqlDataReader SelectDB(string query)
         {
             cmd.CommandText = query;
             sdr = cmd.ExecuteReader();
-
             return sdr;
         }
 
         public void InsertDB(string query)
         {
             cmd.CommandText = query;
-            sdr = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
         }
     }
 }

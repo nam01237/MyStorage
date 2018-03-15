@@ -12,7 +12,7 @@ namespace WHP
         public const byte TYPE_ERROR = 99;      // 오류 타입
         //Request Types (요청 타입) //
         public const byte TYPE_REQ_LOGIN = 1;       // 로그인 요청 타입
-        public const byte TYPE_REQ_REGISTER = 2;    // 회원가입 요청 타입
+        public const byte TYPE_REQ_SIGNUP = 2;    // 회원가입 요청 타입
         public const byte TYPE_REQ_DIRECROTY = 3;   // 폴더에 있는 하위파일, 폴더 요청 타입
         public const byte TYPE_REQ_NEWDIR = 4;      // 새 폴더 만들기 요청 타입
         public const byte TYPE_REQ_DELETE = 5;      // 선택 폴더 삭제 요청 타입
@@ -103,11 +103,11 @@ namespace WHP
     }
 
     [Serializable]
-    public class ReqRegisterPack : Pack // 회원가입 요청 타입
+    public class ReqSignPack : Pack // 회원가입 요청 타입
     {
-        public ReqRegisterPack()
+        public ReqSignPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_REGISTER;
+            PACK_TYPE = CONSTANTS.TYPE_REQ_SIGNUP;
         }
         public string ID;
         public string PW;

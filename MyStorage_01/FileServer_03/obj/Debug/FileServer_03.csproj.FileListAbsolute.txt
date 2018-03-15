@@ -17,3 +17,12 @@ D:\NamHard_03\FileServer_03\obj\Debug\FileServer_03.pdb
 D:\working\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.exe.config
 D:\working\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.exe
 D:\working\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.pdb
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\bin\Debug\WHP.dll
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\bin\Debug\WHP.pdb
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csprojResolveAssemblyReference.cache
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csproj.CoreCompileInputs.cache
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.exe
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.pdb
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.exe.config
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.exe
+D:\indivi\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.pdb
