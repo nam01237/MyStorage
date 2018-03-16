@@ -78,7 +78,7 @@ namespace Client_03
             string dirName = path.Substring(path.LastIndexOf("\\") + 1, path.Length - (path.LastIndexOf("\\") + 1));
 
             ReqDirInfoPack reqPack = new ReqDirInfoPack(); // 폴더에있는 파일/하위폴더 정보를 요청할 Pack
-            reqPack.PATH = path; //
+            reqPack.Path = path; //
             serializer.Serialize(stream, reqPack);
 
             ResDirInfoPack resPack = (ResDirInfoPack)serializer.Deserialize(stream);
@@ -237,14 +237,14 @@ namespace Client_03
             NetworkStream stream = client.GetStream();
             ReqNewDirPack reqPack = new ReqNewDirPack // 해당 경로에 새 폴더 만드는 요청 전송
             {
-                PATH = selectedPath + "\\" + input
+                Path= selectedPath + "\\" + input
             };
             serializer.Serialize(stream, reqPack);
 
             Pack resPack = (Pack)serializer.Deserialize(stream);
-            if (resPack.PACK_TYPE == CONSTANTS.TYPE_ERROR)
+            if (resPack.PackType == CONSTANTS.TYPE_ERROR)
             {
-                MessageBox.Show(CONSTANTS.Err_String[resPack.FLAG], "알림");
+                MessageBox.Show(CONSTANTS.Err_String[resPack.Flag], "알림");
                 return;
             }
 
@@ -268,21 +268,21 @@ namespace Client_03
             {
                 ReqDeletePack reqPack = new ReqDeletePack
                 {
-                    PATH = selectedPath + "\\" + selectedItem.SubItems[0].Text,
-                    FILE_TYPE = selectedItem.SubItems[3].Text.ToCharArray()[0]
+                    Path = selectedPath + "\\" + selectedItem.SubItems[0].Text,
+                    FileType= selectedItem.SubItems[3].Text.ToCharArray()[0]
                 };
                 TcpClient client = fileConnect();
                 NetworkStream stream = client.GetStream();
                 serializer.Serialize(stream, reqPack);
 
                 Pack resPack = (Pack)serializer.Deserialize(stream);
-                if (resPack.PACK_TYPE == CONSTANTS.TYPE_ERROR)
+                if (resPack.PackType == CONSTANTS.TYPE_ERROR)
                 {
-                    MessageBox.Show(CONSTANTS.Err_String[resPack.FLAG], "알림");
+                    MessageBox.Show(CONSTANTS.Err_String[resPack.Flag], "알림");
                     return;
                 }
 
-                lbl_State.Text = string.Format("삭제 성공 : {0}", reqPack.PATH);
+                lbl_State.Text = string.Format("삭제 성공 : {0}", reqPack.Path);
                 stream.Close(); client.Close();
                 RefreshList(selectedPath);
             }
@@ -315,16 +315,16 @@ namespace Client_03
             NetworkStream stream = client.GetStream();
             ReqReNamePack reqPack = new ReqReNamePack
             { 
-                PREVNAME = selectedPath + "\\" + prevName,
-                RENAME = selectedPath + "\\" + input,
-                FILE_TYPE = selectedItem.SubItems[3].Text.ToCharArray()[0]
+                PrevName = selectedPath + "\\" + prevName,
+                ReName = selectedPath + "\\" + input,
+                FileType = selectedItem.SubItems[3].Text.ToCharArray()[0]
             };
             serializer.Serialize(stream, reqPack);  // 요청 전송
 
             Pack resPack = (Pack)serializer.Deserialize(stream);
-            if (resPack.PACK_TYPE == CONSTANTS.TYPE_ERROR)
+            if (resPack.PackType == CONSTANTS.TYPE_ERROR)
             {
-                MessageBox.Show(CONSTANTS.Err_String[resPack.FLAG], "알림");
+                MessageBox.Show(CONSTANTS.Err_String[resPack.Flag], "알림");
                 return;
             }
 
@@ -372,15 +372,15 @@ namespace Client_03
 
                 ReqUpLoadPack reqPack = new ReqUpLoadPack // 요청을 보낸다 //
                 {
-                    PATH = filePath,
-                    FILE_SIZE = (ulong)fileInfo.Length
+                    Path = filePath,
+                    FileSize = (ulong)fileInfo.Length
                 };
                 TcpClient client = fileConnect();
                 NetworkStream stream = client.GetStream();
                 serializer.Serialize(stream, reqPack); // <!> 요청을 보낸다 //
 
                 flagPack = (Pack)serializer.Deserialize(stream); // 서버에서 보내지말라하면 메소드 나감 //
-                if (flagPack.FLAG == CONSTANTS.FLAG_NO)
+                if (flagPack.Flag == CONSTANTS.FLAG_NO)
                 {
                     return;
                 }
@@ -400,8 +400,8 @@ namespace Client_03
                            readSize += read; // 읽은 크기늘린다.
                            SendDataPack resPack = new SendDataPack()
                            {
-                               DATA = new byte[read],
-                               LAST = CONSTANTS.NOT_LAST
+                               Data = new byte[read],
+                               Last = CONSTANTS.NOT_LAST
                            };
                            // 퍼센트바, 진행률 레이블 갱신
                            double per = readSize / (double)fileStream.Length * 100;
@@ -410,12 +410,12 @@ namespace Client_03
                            lbl_Percent.Text = string.Format("{0:F2} %", per);
                            Update();
 
-                           Array.Copy(buffer, 0, resPack.DATA, 0, read); // 읽은 배열 보낼 Pack에 복사
+                           Array.Copy(buffer, 0, resPack.Data, 0, read); // 읽은 배열 보낼 Pack에 복사
                            if (readSize >= fileStream.Length || !runUp)  // 원본 파일 크기만큼 읽었다면 마지막 Pack을 보내기위해 표시한다.
-                               resPack.LAST = CONSTANTS.LAST;            // ㄴ 또는 '취소' 버튼을 눌러서 중단해도 마지막 표시를한다. ( 취소하면 runUp이 false가 된다.)
+                               resPack.Last = CONSTANTS.LAST;            // ㄴ 또는 '취소' 버튼을 눌러서 중단해도 마지막 표시를한다. ( 취소하면 runUp이 false가 된다.)
                            serializer.Serialize(stream, resPack);
 
-                           if (resPack.LAST == CONSTANTS.LAST) // 보낸 Pack이 마지막이면 반복문 종료
+                           if (resPack.Last == CONSTANTS.LAST) // 보낸 Pack이 마지막이면 반복문 종료
                                break;
                        }
                    }
@@ -496,36 +496,36 @@ namespace Client_03
 
             ReqLoginPack reqLoginPack = new ReqLoginPack() // 보낼 요청 인스턴스
             {
-                ID = id,
-                PW = pw
+                Id = id,
+                Pw = pw
             };
             serializer.Serialize(logStream, reqLoginPack);
 
             Pack resPack = (Pack)serializer.Deserialize(logStream);
-            if (resPack.PACK_TYPE == CONSTANTS.TYPE_ERROR) // 오류판별
+            if (resPack.PackType == CONSTANTS.TYPE_ERROR) // 오류판별
             {
-                if (resPack.FLAG == CONSTANTS.ERROR_CONNECTED_ID)
+                if (resPack.Flag == CONSTANTS.ERROR_CONNECTED_ID)
                 {
                     if (MessageBox.Show("이미 접속중인 ID 입니다. \n 기존 연결을 끊고 접속하시겠습니까?", "알림",
                         MessageBoxButtons.YesNo) == DialogResult.Yes) // 중복 로그인인 경우 사용자가 기존 연결끊고 접속할지 여부를 선택한다.
                     {
-                        flagPack.FLAG = CONSTANTS.FLAG_YES;
+                        flagPack.Flag = CONSTANTS.FLAG_YES;
                         serializer.Serialize(logStream, flagPack);
                         resPack = (Pack)serializer.Deserialize(logStream);
 
-                        if (resPack.PACK_TYPE == CONSTANTS.TYPE_ERROR)
+                        if (resPack.PackType == CONSTANTS.TYPE_ERROR)
                             return;
                     }
                     else
                     {
-                        flagPack.FLAG = CONSTANTS.FLAG_NO; // 
+                        flagPack.Flag = CONSTANTS.FLAG_NO; // 
                         serializer.Serialize(logStream, flagPack);
                         return;
                     }
                 }
                 else
                 {
-                    loginForm.lbl_notice.Text = CONSTANTS.Err_String[resPack.FLAG]; // 로그인 폼에 오류이유를 알린다.
+                    loginForm.lbl_notice.Text = CONSTANTS.Err_String[resPack.Flag]; // 로그인 폼에 오류이유를 알린다.
                     return;
                 }
             }
@@ -535,7 +535,7 @@ namespace Client_03
             startControl();
             btn_Login.Enabled = false; // 로그인/회원가입 버튼은 비활성화
             btn_Register.Enabled = false;
-            userID = reqLoginPack.ID;
+            userID = reqLoginPack.Id;
             SetStartNode();
             // 로그인 유지를 하는 반복문을 비동기로 처리하고 메소드를 탈출한다.
             await Task.Run(() =>
@@ -545,14 +545,14 @@ namespace Client_03
                     //serializer.Serialize(logStream, reqMait); // 요청을 주고
                     resMait = (Pack)serializer.Deserialize(logStream); // 받는다.
 
-                    if (resMait.PACK_TYPE == CONSTANTS.TYPE_ERROR) // 만약 받은 Pack에 에러가있다면 서버에서 연결을 끊이려는 것이다.
+                    if (resMait.PackType == CONSTANTS.TYPE_ERROR) // 만약 받은 Pack에 에러가있다면 서버에서 연결을 끊이려는 것이다.
                     {
                         runUp = false; // 끊기전에 업로드를 종료한다.
                         foreach (DownLoadWindow dw in dwList) // 열려있는 다운로드창도 모두 닫는다.
                         {
                             dw.Close();
                         }
-                        MessageBox.Show(CONSTANTS.Err_String[resMait.FLAG], "알림");
+                        MessageBox.Show(CONSTANTS.Err_String[resMait.Flag], "알림");
                         Application.Exit(); // 프로그램 종료
                     }
 
@@ -582,14 +582,14 @@ namespace Client_03
             NetworkStream fileStream = fileClient.GetStream();
             ReqStartNodePack reqNodePack = new ReqStartNodePack
             {
-                ID = userID // 본인이 접속한 id명의 폴더가 자신의 공간이다. 이 폴더의 하위폴더를 노드형태로 받아올거다.
+                Id = userID // 본인이 접속한 id명의 폴더가 자신의 공간이다. 이 폴더의 하위폴더를 노드형태로 받아올거다.
             };
             serializer.Serialize(fileStream, reqNodePack);
 
             Pack resNodePack = (Pack)serializer.Deserialize(fileStream);
-            if (resNodePack.PACK_TYPE == CONSTANTS.TYPE_ERROR)
+            if (resNodePack.PackType == CONSTANTS.TYPE_ERROR)
             {
-                MessageBox.Show(CONSTANTS.Err_String[resNodePack.FLAG], "알림");
+                MessageBox.Show(CONSTANTS.Err_String[resNodePack.Flag], "알림");
                 return;
             }
 
@@ -641,19 +641,19 @@ namespace Client_03
             NetworkStream regStream = regClient.GetStream();
             ReqSignPack reqPack = new ReqSignPack
             {
-                ID = id,
-                PW = pw1,
-                EMAIL = email
+                Id = id,
+                Pw = pw1,
+                Email = email
             };
             serializer.Serialize(regStream, reqPack);
 
             Pack flagPack = (Pack)serializer.Deserialize(regStream);
-            if (flagPack.PACK_TYPE == CONSTANTS.TYPE_ERROR) // 에러검사
+            if (flagPack.PackType == CONSTANTS.TYPE_ERROR) // 에러검사
             {
-                regForm.lbl_state.Text = CONSTANTS.Err_String[flagPack.FLAG];
+                regForm.lbl_state.Text = CONSTANTS.Err_String[flagPack.Flag];
                 return;
             }
-            else if (flagPack.PACK_TYPE == CONSTANTS.TYPE_BASIC)
+            else if (flagPack.PackType == CONSTANTS.TYPE_BASIC)
             {
                 MessageBox.Show("회원가입이 완료 되었습니다.", "알림");
                 regForm.Close();

@@ -49,3 +49,4 @@ D:\indivi\MyStorage\MyStorage_01\WHP\bin\Debug\WHP.pdb
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csproj.CoreCompileInputs.cache
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.dll
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.pdb
+D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csprojResolveAssemblyReference.cache

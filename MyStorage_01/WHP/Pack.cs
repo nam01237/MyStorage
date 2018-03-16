@@ -81,11 +81,23 @@ namespace WHP
     {
         public Pack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_BASIC;
-            FLAG = CONSTANTS.FLAG_NORMAL;
+            type = CONSTANTS.TYPE_BASIC;
+            flag = CONSTANTS.FLAG_NORMAL;
         }
-        public uint PACK_TYPE; // Pack의 타입
-        public byte FLAG;      // 부가적인 신호
+        protected uint type; // Pack의 타입
+        protected byte flag;      // 부가적인 신호
+
+        public uint PackType
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        public byte Flag
+        {
+            get { return flag; }
+            set { flag = value; }
+        }
     }
 
     //==== Pack Class ====//
@@ -96,10 +108,22 @@ namespace WHP
     {
         public ReqLoginPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_LOGIN;
+            type = CONSTANTS.TYPE_REQ_LOGIN;
         }
-        public string ID;
-        public string PW;
+        private string id;
+        private string pw;
+
+        public string Id
+        {
+            get { return id;  }
+            set { id = value;  }
+        }
+
+        public string Pw
+        {
+            get { return pw; }
+            set { pw = value; }
+        }
     }
 
     [Serializable]
@@ -107,11 +131,29 @@ namespace WHP
     {
         public ReqSignPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_SIGNUP;
+            type = CONSTANTS.TYPE_REQ_SIGNUP;
         }
-        public string ID;
-        public string PW;
-        public string EMAIL;
+        private string id;
+        private string pw;
+        private string email;
+
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Pw
+        {
+            get { return pw; }
+            set { pw = value; }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
     }
 
     [Serializable]
@@ -119,9 +161,15 @@ namespace WHP
     {
         public ReqDirInfoPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_DIRECROTY;
+            type = CONSTANTS.TYPE_REQ_DIRECROTY;
         }
-        public string PATH;
+        private string path;
+
+        public string Path
+        {
+            get { return path;  }
+            set { path = value;  }
+        }
     }
 
     [Serializable]
@@ -129,9 +177,15 @@ namespace WHP
     {
         public ReqNewDirPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_NEWDIR;
+            type = CONSTANTS.TYPE_REQ_NEWDIR;
         }
-        public string PATH;
+        private string path;
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
     }
 
     [Serializable]
@@ -139,10 +193,22 @@ namespace WHP
     {
         public ReqDeletePack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_DELETE;
+            type = CONSTANTS.TYPE_REQ_DELETE;
         }
-        public string PATH;
-        public char FILE_TYPE;
+        private string path;
+        private char fileType;
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
+
+        public char FileType
+        {
+            get { return fileType;  }
+            set { fileType = value;  }
+        }
     }
 
     [Serializable]
@@ -150,11 +216,29 @@ namespace WHP
     { 
         public ReqReNamePack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_RENAME;
+            type = CONSTANTS.TYPE_REQ_RENAME;
         }
-        public string PREVNAME;
-        public string RENAME;
-        public char FILE_TYPE;
+        private string prevName;
+        private string reName;
+        private char fileType;
+
+        public string PrevName
+        {
+            get { return prevName; }
+            set { prevName = value; }
+        }
+
+        public string ReName
+        {
+            get { return reName; }
+            set { reName = value; }
+        }
+
+        public char FileType
+        {
+            get { return fileType; }
+            set { fileType = value; }
+        }
     }
 
     [Serializable]
@@ -162,9 +246,15 @@ namespace WHP
     {
         public ReqDownLoadPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_DOWNLOAD;
+            type = CONSTANTS.TYPE_REQ_DOWNLOAD;
         }
-        public string PATH;
+        private string path;
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
     }
 
     [Serializable]
@@ -172,20 +262,38 @@ namespace WHP
     {
         public ReqUpLoadPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_UPLOAD;
+            type = CONSTANTS.TYPE_REQ_UPLOAD;
         }
-        public string PATH;
-        public ulong FILE_SIZE;
+        private string path;
+        private ulong fileSize;
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value; }
+        }
+
+        public ulong FileSize
+        {
+            get { return fileSize; }
+            set { fileSize = value; }
+        }
     }
 
     [Serializable]
     public class ReqStartNodePack : Pack // 로그인 성공시 유저 공간 경로를 담은 TreeViewNode 요청 타입
-{
+    {
         public ReqStartNodePack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_REQ_STARTNODE;
+            type = CONSTANTS.TYPE_REQ_STARTNODE;
         }
-        public string ID;
+        private string id;
+
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
     }
 
 
@@ -195,12 +303,24 @@ namespace WHP
     {
         public SendDataPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_SEND_DATA;
-            FLAG = CONSTANTS.FLAG_NORMAL;
+            type = CONSTANTS.TYPE_SEND_DATA;
+            flag = CONSTANTS.FLAG_NORMAL;
         }
 
-        public byte[] DATA;
-        public byte LAST;
+        private byte[] data;
+        private byte last;
+
+        public byte[] Data
+        {
+            get { return data; }
+            set { data= value; }
+        }
+
+        public byte Last
+        {
+            get { return last; }
+            set { last = value; }
+        }
     }
 
     [Serializable]
@@ -208,7 +328,7 @@ namespace WHP
 {
         public  ResDirInfoPack()
         {
-            PACK_TYPE = CONSTANTS.TYPE_RES_DIRECTORY;
+            type = CONSTANTS.TYPE_RES_DIRECTORY;
         }
 
         public List<FileInfoStructure> FilesInfo = new List<FileInfoStructure>();
@@ -219,8 +339,8 @@ namespace WHP
 {
         public ResStartNode()
         {
-            PACK_TYPE = CONSTANTS.TYPE_RES_STARTNODE;
-            FLAG = CONSTANTS.FLAG_SUCCESS;
+            type = CONSTANTS.TYPE_RES_STARTNODE;
+            flag = CONSTANTS.FLAG_SUCCESS;
         }
 
         public TreeNode ROOT_NODE;

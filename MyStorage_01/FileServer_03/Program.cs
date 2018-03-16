@@ -24,7 +24,7 @@ namespace FileServer_03
         BinaryFormatter serializer;                     // 직렬화를 담당한다.
 
         private TreeView tempTree = new TreeView();     // 클라이언트에 보낼 TreeViewNode(디렉토리 경로 나타냄) 임시로 붙일 TreeView 
-        const string rootPath = "D:\\MyStorage";                 // 서버 파일들 저장하는 경로 (D:\\계정명 ~ )
+        const string rootPath = "D:\\MyStorage\\";                 // 서버 파일들 저장하는 경로 (D:\\계정명 ~ )
 
         // === 생성자 === //
         public ServiceUtil(TcpClient client) // 요청을 보낸 클라이언트 정보로 TcpClient, NetStream초기화
@@ -42,7 +42,7 @@ namespace FileServer_03
                 Pack reqPack = (Pack)serializer.Deserialize(clientStream); 
                 Console.WriteLine("<->요청확인 : {0}", ((IPEndPoint)client.Client.RemoteEndPoint).ToString());
 
-                switch (reqPack.PACK_TYPE) // 요청을 받아서 타입에맞게 메소드에 뿌려주는 switch문
+                switch (reqPack.PackType) // 요청을 받아서 타입에맞게 메소드에 뿌려주는 switch문
                 {
                     case CONSTANTS.TYPE_REQ_STARTNODE:
                         ResNode((ReqStartNodePack)reqPack);
@@ -107,10 +107,10 @@ namespace FileServer_03
         // ==== ResNode() (TYPE_REQ_LOGIN) ==== //
         private void ResNode(ReqStartNodePack reqPack) // 클라이언트에 초기노드 만들어서 보내는 응답
         {
-            TreeNode node = new TreeNode(reqPack.ID); // 보낼 임시노드
-            if (!(Directory.Exists(rootPath + reqPack.ID))) // 가입 후 첫 접속일경우 ID이름의 폴더가없으므로 만들어준다
+            TreeNode node = new TreeNode(reqPack.Id); // 보낼 임시노드
+            if (!(Directory.Exists(rootPath + reqPack.Id))) // 가입 후 첫 접속일경우 ID이름의 폴더가없으므로 만들어준다
             {
-                Directory.CreateDirectory(rootPath + reqPack.ID);
+                Directory.CreateDirectory(rootPath + reqPack.Id);
             }
             tempTree.Nodes.Add(node); // 노드에 노드를 추가하기위해서 TreeView에 추가를 해줘야하더라
             MakeTreeNode(node); // 경로검색해서 노드들 붙이는 메소드
@@ -125,7 +125,7 @@ namespace FileServer_03
         // ===  ResDirInfo() (TYPE_REQ_DIRECTORY) === //
         private void ResDirInfo(ReqDirInfoPack reqPack) // 선택한 디렉토리에 있는 파일과 하위폴더정보를 보내준다.
         {
-            string path = rootPath + reqPack.PATH;
+            string path = rootPath + reqPack.Path;
             ResDirInfoPack resPack = new ResDirInfoPack();   // 디렉토리 정보담는 Pack
             FileInfoStructure fis = new FileInfoStructure(); // 파일정보 담는 구조체 인스턴스 ->WHP참조
 
@@ -163,15 +163,15 @@ namespace FileServer_03
         // === MakeNewDir() (TYPE_REQ_NEWDIR) === //
         private void MakeNewDir(ReqNewDirPack reqPack) // 새로운 디렉토리를 만든다.
         {
-            string path = rootPath + reqPack.PATH;
+            string path = rootPath + reqPack.Path;
             Pack resPack = new Pack(); // 작업결과 응답할 Pack
 
             try
             {
                 if (Directory.Exists(path)) // 같은이름의 폴더있으면 실패
                 {
-                    resPack.PACK_TYPE = CONSTANTS.TYPE_ERROR;
-                    resPack.FLAG = CONSTANTS.ERROR_EXIST_DIR;
+                    resPack.PackType = CONSTANTS.TYPE_ERROR;
+                    resPack.Flag = CONSTANTS.ERROR_EXIST_DIR;
                     serializer.Serialize(clientStream, resPack);
                     return;
                 }
@@ -181,8 +181,8 @@ namespace FileServer_03
             }
             catch (ArgumentException) // 윈도우 폴더이름 규칙위반
             {
-                resPack.PACK_TYPE = CONSTANTS.TYPE_ERROR;
-                resPack.FLAG = CONSTANTS.ERROR_INVALID_CHAR;
+                resPack.PackType = CONSTANTS.TYPE_ERROR;
+                resPack.Flag = CONSTANTS.ERROR_INVALID_CHAR;
             }
 
             serializer.Serialize(clientStream, resPack);
@@ -193,37 +193,37 @@ namespace FileServer_03
         private void DeleteFile(ReqDeletePack reqPack) // 디렉토리/파일 삭제
         {
             Pack resPack = new Pack();
-            reqPack.FLAG = CONSTANTS.FLAG_SUCCESS;
+            reqPack.Flag = CONSTANTS.FLAG_SUCCESS;
 
-            if (reqPack.FILE_TYPE == 'd') // 디렉토리를 상제하는경우
+            if (reqPack.FileType == 'd') // 디렉토리를 상제하는경우
             {
-                Directory.Delete(rootPath + reqPack.PATH, true);
+                Directory.Delete(rootPath + reqPack.Path, true);
             }
-            else if (reqPack.FILE_TYPE == 'f')
+            else if (reqPack.FileType == 'f')
             {
-                File.Delete(rootPath + reqPack.PATH); // 파일을 삭제하는경우
+                File.Delete(rootPath + reqPack.Path); // 파일을 삭제하는경우
             }
 
             serializer.Serialize(clientStream, resPack);
-            Console.WriteLine("<->디렉토리/파일 삭제 : {0} ", rootPath + reqPack.PATH);
+            Console.WriteLine("<->디렉토리/파일 삭제 : {0} ", rootPath + reqPack.Path);
         }
 
         // === ReNameFile() (TYPE_REQ_RENAME) ==== //
         private void ReNameFile(ReqReNamePack reqPack) // 디렉토리/파일 이름변경
         {
             Pack resPack = new Pack();
-            string prevPath = rootPath + "\\" + reqPack.PREVNAME; // 원래 경로
-            string ensuPath = rootPath + "\\" + reqPack.RENAME; // 바꿀 경로
-            reqPack.FLAG = CONSTANTS.FLAG_SUCCESS;
+            string prevPath = rootPath + "\\" + reqPack.PrevName; // 원래 경로
+            string ensuPath = rootPath + "\\" + reqPack.ReName; // 바꿀 경로
+            reqPack.Flag = CONSTANTS.FLAG_SUCCESS;
 
             try
             {
-                if (reqPack.FILE_TYPE == 'd')
+                if (reqPack.FileType == 'd')
                 {
                     if (Directory.Exists(ensuPath))
                     {
-                        resPack.PACK_TYPE = CONSTANTS.TYPE_ERROR;
-                        resPack.FLAG = CONSTANTS.ERROR_EXIST_DIR;
+                        resPack.PackType = CONSTANTS.TYPE_ERROR;
+                        resPack.Flag = CONSTANTS.ERROR_EXIST_DIR;
                         serializer.Serialize(clientStream, resPack);
                         return;
                     }
@@ -231,14 +231,14 @@ namespace FileServer_03
                     DirectoryInfo di = new DirectoryInfo(prevPath);
                     di.MoveTo(ensuPath); // 이름바꾸기
                 }
-                else if (reqPack.FILE_TYPE == 'f')
+                else if (reqPack.FileType == 'f')
                 {
                     string ext = prevPath.Substring(prevPath.LastIndexOf('.'), prevPath.Length - prevPath.LastIndexOf('.')); // 확장자명 추출
 
                     if (File.Exists(ensuPath + ext))
                     {
-                        resPack.PACK_TYPE = CONSTANTS.TYPE_ERROR;
-                        resPack.FLAG = CONSTANTS.ERROR_EXIST_FILE;
+                        resPack.PackType = CONSTANTS.TYPE_ERROR;
+                        resPack.Flag = CONSTANTS.ERROR_EXIST_FILE;
                         serializer.Serialize(clientStream, resPack);
                         return;
                     }
@@ -248,8 +248,8 @@ namespace FileServer_03
             }
             catch (ArgumentException)
             {
-                resPack.PACK_TYPE = CONSTANTS.TYPE_ERROR;
-                resPack.FLAG = CONSTANTS.ERROR_INVALID_CHAR;
+                resPack.PackType = CONSTANTS.TYPE_ERROR;
+                resPack.Flag = CONSTANTS.ERROR_INVALID_CHAR;
             }
 
             serializer.Serialize(clientStream, resPack);
@@ -259,14 +259,14 @@ namespace FileServer_03
         // === ReceiveFileData() (TYPE_REQ_UPLOAD) === //
         private void ReceiveFileData(ReqUpLoadPack reqPack) // 요청한 파일 데이터를 받는다. (업로드)
         {
-            fileStream = new FileStream(rootPath + reqPack.PATH, FileMode.Create); // 요청경로의 파일스트림
+            fileStream = new FileStream(rootPath + reqPack.Path, FileMode.Create); // 요청경로의 파일스트림
             SendDataPack resPack = new SendDataPack(); // 파일 데이터를 계속해서 담는 인스턴스
-            ulong totalSize = reqPack.FILE_SIZE; // 원래 파일크기
+            ulong totalSize = reqPack.FileSize; // 원래 파일크기
             long recvSize = 0;                  // 받은 크기
 
             Pack flagPack = new Pack() // 파일전송을 유지여부를 결정하기 위한 Pack 계속받아서 판별한다.
             {
-                FLAG = CONSTANTS.FLAG_YES
+                Flag = CONSTANTS.FLAG_YES
             };
 
             serializer.Serialize(clientStream, flagPack); // 시작신호 보낸다.
@@ -274,10 +274,10 @@ namespace FileServer_03
 
             while ((resPack = (SendDataPack)serializer.Deserialize(clientStream)) != null) // 받을 Pack이 없을때까지 반복
             {
-                fileStream.Write(resPack.DATA, 0, resPack.DATA.Length); // 받은 Pack의 DATA[]을 파일로쓴다.
-                recvSize += resPack.DATA.Length; // 받은크기 늘린다.
+                fileStream.Write(resPack.Data, 0, resPack.Data.Length); // 받은 Pack의 DATA[]을 파일로쓴다.
+                recvSize += resPack.Data.Length; // 받은크기 늘린다.
 
-                if (resPack.LAST == CONSTANTS.LAST) // LAST == LAST는 파일의 끝을의미
+                if (resPack.Last == CONSTANTS.LAST) // LAST == LAST는 파일의 끝을의미
                     break;
             }
 
@@ -300,7 +300,7 @@ namespace FileServer_03
         // === SendFileData() (TYPE_REQ_DOWNLOAD) === //
         private void SendFileData(ReqDownLoadPack reqPack) // 요청한 파일 데이터를 보낸다. (다운로드)
         {
-            string path = rootPath + reqPack.PATH;
+            string path = rootPath + reqPack.Path;
             Pack flagPack = new Pack();
 
             using (Stream fileStream = new FileStream(path, FileMode.Open)) // 전송요청 받은 파일을 연다.
@@ -313,22 +313,22 @@ namespace FileServer_03
                 while (true)
                 {
                     flagPack = (Pack)serializer.Deserialize(clientStream); // 전송을 계속할지 여부를 클라이언트 요청 받으면서 진행
-                    if (flagPack.FLAG == CONSTANTS.FLAG_NO) 
+                    if (flagPack.Flag == CONSTANTS.FLAG_NO) 
                         break;
 
                     int read = fileStream.Read(buffer, 0, (1024 * 1024)); // 파일로부터 데이터 읽는다.
                     totalRead += read;
                     SendDataPack resPack = new SendDataPack()
                     {
-                        LAST = CONSTANTS.NOT_LAST,
-                        DATA = new byte[read]
+                        Last = CONSTANTS.NOT_LAST,
+                        Data = new byte[read]
                     };
 
-                    Array.Copy(buffer, 0, resPack.DATA, 0, read); // 파일로부터 읽은 데이터 보낼 DATA[]로 복사 
+                    Array.Copy(buffer, 0, resPack.Data, 0, read); // 파일로부터 읽은 데이터 보낼 DATA[]로 복사 
 
                     if (totalRead >= fileStream.Length) // 총 읽은크기가 파일의 크기 이상일때 (다 읽었을때)
                     {
-                        resPack.LAST = CONSTANTS.LAST; // 전송의 끝을알림
+                        resPack.Last = CONSTANTS.LAST; // 전송의 끝을알림
                         serializer.Serialize(clientStream, resPack);
                         break;
                     }
