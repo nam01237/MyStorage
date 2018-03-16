@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace LoginServer
 {
@@ -32,16 +33,16 @@ namespace LoginServer
             return instance;
         }
 
-        public SqlDataReader SelectDB(string query)
+        public SqlDataReader SelectDB(StringBuilder query)
         {
-            cmd.CommandText = query;
+            cmd.CommandText = query.ToString() ;
             sdr = cmd.ExecuteReader();
             return sdr;
         }
 
-        public void InsertDB(string query)
+        public void InsertDB(StringBuilder query)
         {
-            cmd.CommandText = query;
+            cmd.CommandText = query.ToString();
             cmd.ExecuteNonQuery();
         }
     }
