@@ -8,8 +8,8 @@ namespace LoginServer
     class LoginUserList
     {
         private static LoginUserList instance;
-        private Hashtable users;
-        private object thisLock;
+        private readonly Hashtable users;
+        private readonly object thisLock;
 
         private LoginUserList()
         {

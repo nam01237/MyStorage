@@ -50,3 +50,9 @@ D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csproj.CoreCompileInputs.cach
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.dll
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.pdb
 D:\indivi\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csprojResolveAssemblyReference.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\bin\Debug\WHP.dll
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\bin\Debug\WHP.pdb
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csprojResolveAssemblyReference.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.csproj.CoreCompileInputs.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.dll
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\WHP\obj\Debug\WHP.pdb

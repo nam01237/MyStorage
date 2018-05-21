@@ -46,3 +46,20 @@ D:\indivi\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csproj.GenerateRe
 D:\indivi\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csproj.CoreCompileInputs.cache
 D:\indivi\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.exe
 D:\indivi\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.pdb
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\bin\Debug\Client_03.exe.config
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\bin\Debug\Client_03.exe
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\bin\Debug\Client_03.pdb
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\bin\Debug\WHP.dll
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\bin\Debug\WHP.pdb
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csprojResolveAssemblyReference.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.DownLoadWindow.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.LoginForm.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.MainForm.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.InputForm.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.Properties.Resources.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.RegisterForm.resources
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csproj.GenerateResource.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csproj.CoreCompileInputs.cache
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.csproj.CopyComplete
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.exe
+D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\Client_03\obj\Debug\Client_03.pdb
