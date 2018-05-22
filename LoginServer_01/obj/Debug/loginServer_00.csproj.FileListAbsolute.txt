@@ -1,0 +1,16 @@
+D:\WebHard_02_1128\loginServer_00\bin\Debug\loginServer_00.exe.config
+D:\WebHard_02_1128\loginServer_00\obj\Debug\loginServer_00.csprojResolveAssemblyReference.cache
+D:\WebHard_02_1128\loginServer_00\bin\Debug\loginServer_00.exe
+D:\WebHard_02_1128\loginServer_00\bin\Debug\loginServer_00.pdb
+D:\WebHard_02_1128\loginServer_00\bin\Debug\WHP.dll
+D:\WebHard_02_1128\loginServer_00\bin\Debug\WHP.pdb
+D:\WebHard_02_1128\loginServer_00\obj\Debug\loginServer_00.exe
+D:\WebHard_02_1128\loginServer_00\obj\Debug\loginServer_00.pdb
+D:\WebHard_02_1130\loginServer_00\bin\Debug\loginServer_00.exe.config
+D:\WebHard_02_1130\loginServer_00\obj\Debug\loginServer_00.exe
+D:\WebHard_02_1130\loginServer_00\obj\Debug\loginServer_00.pdb
+D:\WebHard_02_1130\loginServer_00\bin\Debug\loginServer_00.exe
+D:\WebHard_02_1130\loginServer_00\bin\Debug\loginServer_00.pdb
+D:\WebHard_02_1130\loginServer_00\bin\Debug\WHP.dll
+D:\WebHard_02_1130\loginServer_00\bin\Debug\WHP.pdb
+D:\WebHard_02_1130\loginServer_00\obj\Debug\loginServer_00.csprojResolveAssemblyReference.cache
