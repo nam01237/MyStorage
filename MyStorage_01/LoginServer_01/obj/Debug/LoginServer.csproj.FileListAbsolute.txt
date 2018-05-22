@@ -17,3 +17,13 @@ D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\LoginServer_0
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csproj.CopyComplete
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.exe
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.exe.config
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.exe
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\loginServer.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.dll
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\bin\Debug\WHP.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csprojResolveAssemblyReference.cache
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csproj.CoreCompileInputs.cache
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\LoginServer.csproj.CopyComplete
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.exe
+Z:\Shared Forder\MyStorage\MyStorage_01\LoginServer_01\obj\Debug\loginServer.pdb

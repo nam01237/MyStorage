@@ -49,9 +49,10 @@ namespace LoginServer
             string reqPw = logPack.Pw;
 
             query.Clear();
-            query.Append("select *, PWDCOMPARE('");
-            query.Append(reqPw);
-            query.Append("', pw) as pwd from users");
+            //query.Append("select *, PWDCOMPARE('");
+            //query.Append(reqPw);
+            //query.Append("', pw) as pwd from users");
+            query.Append("select * from users");
             query.Append(" where id COLLATE Korean_Wansung_CS_AS = '");
             query.Append(reqId);
             query.Append("'");
@@ -65,7 +66,7 @@ namespace LoginServer
                 serializer.Serialize(clientStream, successPack);
                 Console.WriteLine("<!>없는 아이디 입력으로 로그인실패 / ID : {0} IP : {1}", reqId, ipString);
             }
-            else if (((int)sdr["pwd"]) == 0) // pw가 틀린경우
+            else if ( (string) sdr["pw"] != reqPw ) // else if (((int)sdr["pwd"]) == 0) // pw가 틀린경우
             {
                 successPack.PackType = CONSTANTS.TYPE_ERROR;
                 successPack.Flag = CONSTANTS.ERROR_INVALID_PASSWORD;
@@ -169,11 +170,11 @@ namespace LoginServer
             // 테이블에 요청한 정보에따라 insert
 
             query.Clear();
-            query.Append("insert into users(id, pw, email, logch) values('");
+            query.Append("insert into users(id, pw, email) values('");
             query.Append(signId);
-            query.Append("', PWDENCRYPT('" + signPw + "'), '");
+            query.Append("', '" +signPw+ "', '");
             query.Append(signEmail);
-            query.Append("', 'N')");
+            query.Append("')");
 
             Program.ldbc.InsertDB(query);
 
@@ -238,8 +239,8 @@ namespace LoginServer
             }
             finally
             {
-                if (loginId != null)
-                    Program.userList.RemoveUser(loginId);
+                //if (loginId != null)
+                //    Program.userList.RemoveUser(loginId);
 
                 if (sdr != null)
                     sdr.Close();

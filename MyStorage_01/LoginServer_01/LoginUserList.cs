@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using WHP;
 
 
@@ -8,12 +10,12 @@ namespace LoginServer
     class LoginUserList
     {
         private static LoginUserList instance;
-        private readonly Hashtable users;
-        private readonly object thisLock;
+        private Dictionary<string, Guid> users;
+        private object thisLock;
 
         private LoginUserList()
         {
-            users = new Hashtable();
+            users = new Dictionary<string, Guid>();
             thisLock = new object();
         }
 

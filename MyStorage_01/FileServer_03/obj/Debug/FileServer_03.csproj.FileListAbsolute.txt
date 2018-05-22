@@ -36,3 +36,13 @@ D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\FileServer_03
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csproj.CopyComplete
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.exe
 D:\Program Files (x86)\VMware\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.exe.config
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.exe
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\bin\Debug\FileServer_03.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\bin\Debug\WHP.dll
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\bin\Debug\WHP.pdb
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csprojResolveAssemblyReference.cache
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csproj.CoreCompileInputs.cache
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.csproj.CopyComplete
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.exe
+Z:\Shared Forder\MyStorage\MyStorage_01\FileServer_03\obj\Debug\FileServer_03.pdb

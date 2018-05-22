@@ -19,8 +19,8 @@ namespace Client_03
     public partial class MainForm : Form
     {
         // 네트워크 관련
-        private IPEndPoint fileAdress = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 4454);   // 파일서버 주소
-        private IPEndPoint loginAdress = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 4453);  // 로그인서버 주소 
+        private IPEndPoint fileAdress = new IPEndPoint(IPAddress.Parse("192.168.101.128"), 4454);   // 파일서버 주소
+        private IPEndPoint loginAdress = new IPEndPoint(IPAddress.Parse("192.168.101.128"), 4453);  // 로그인서버 주소 
         private IPEndPoint clientAdress = new IPEndPoint(0, 0);  // 클라이언트 (이 프로그램) 주소
         private string downPath = "";   // 다운로드 경로 저장하는 문자열
         // 
