@@ -44,9 +44,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WHP">
-      <HintPath>..\WHP\bin\Debug\WHP.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DownLoadWindow.cs">
@@ -130,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_icon-1-cloud_315805.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WHP\WHP.csproj">
+      <Project>{a11502d2-804a-428a-8145-06fa1d067982}</Project>
+      <Name>WHP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

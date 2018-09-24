@@ -15,7 +15,7 @@ namespace LoginServer
         private LoginDBConnector()
         {
             this.conn = new SqlConnection();
-            string strConn = "server=.\\SQLEXPRESS; database=WebHard; uid=WHADMIN; pwd=562389;";
+            string strConn = "server=localhost; database=MyStorage; uid=sto; pwd=sto;";
             conn.ConnectionString = strConn;
             conn.Open();
             cmd = new SqlCommand();
