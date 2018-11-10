@@ -235,12 +235,12 @@ namespace LoginServer
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             finally
             {
-                //if (loginId != null)
-                //    Program.userList.RemoveUser(loginId);
+                if ( Program.userList.CorrectLogin(loginId, loginGuid) )
+                    Program.userList.RemoveUser(loginId);
 
                 if (sdr != null)
                     sdr.Close();
